@@ -3,19 +3,7 @@ from datacenter.models import Passcard, Visit
 from datetime import timedelta
 from django.utils.timezone import localtime
 from django.http import Http404
-
-
-def get_duration(entered_at, leaved_at):
-    entered_time = localtime(entered_at)
-    leaved_time = localtime(leaved_at)
-    duration = leaved_time - entered_time
-    return duration
-
-
-def format_duration(duration):
-    hours, remainder = divmod(duration.seconds, 3600)
-    minutes, _ = divmod(remainder, 60)
-    return f'{hours} часов {minutes} минут'
+from time_utils import get_duration, format_duration
 
 
 def passcard_info_view(request, passcode):

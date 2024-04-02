@@ -4,21 +4,10 @@ from django.shortcuts import render
 from django.utils.timezone import localtime, now
 from datetime import timedelta
 from datacenter.models import Visit
+from time_utils import get_duration, format_duration
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'settings')
 django.setup()
-
-
-def get_duration(entered_at):
-    entered_time = localtime(entered_at)
-    current_time = localtime(now())
-    duration = current_time - entered_time
-    return str(timedelta(seconds=duration.total_seconds()))[:-3]
-
-
-def format_duration(duration_str):
-    hours, minutes, _ = duration_str.split(':')
-    return f'{hours} часов {minutes} минут'
 
 
 def storage_information_view(request):
