@@ -39,17 +39,12 @@ pip install -r requirements.txt
 1. Создайте файл `.env` в корне проекта и заполните его данными о настройке проекта, например:
 
 ```
-ENGINE=django.db.backends.postgresql
-HOST=localhost
-PORT=5432
-NAME=mydatabase
-USER=mydatabaseuser
-PASSWORD=mypassword
-SECRET_KEY=mysecretkey
+DATABASE_URL=postgres://USERNAME:PASSWORD@HOST:PORT/DATABASE_NAME
+SECRET_KEY=REPLACE_ME
 DEBUG=True
 ROOT_URLCONF=project.urls
-LANGUAGE_CODE=language
-TIME_ZONE=zone
+LANGUAGE_CODE=ru-ru
+TIME_ZONE=Europe/Moscow
 DEFAULT_AUTO_FIELD=django.db.models.BigAutoField
 ```
 
