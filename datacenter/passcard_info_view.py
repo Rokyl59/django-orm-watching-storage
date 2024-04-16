@@ -3,7 +3,7 @@ from datacenter.models import Passcard, Visit
 from datetime import timedelta
 from django.utils.timezone import localtime
 from django.http import Http404
-from time_utils import get_duration, format_duration
+from datacenter.time_utils import get_duration, format_duration
 
 
 def passcard_info_view(request, passcode):
