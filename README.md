@@ -46,6 +46,7 @@ ROOT_URLCONF=project.urls
 LANGUAGE_CODE=ru-ru
 TIME_ZONE=Europe/Moscow
 DEFAULT_AUTO_FIELD=django.db.models.BigAutoField
+ALLOWED_HOSTS=.yourproductiondomain.com,stage.yourproductiondomain.com,localhost
 ```
 
 ## Запуск
