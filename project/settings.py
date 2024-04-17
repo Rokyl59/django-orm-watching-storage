@@ -1,10 +1,7 @@
 import os
-from dotenv import load_dotenv
 import dj_database_url
 from environs import Env
 
-
-load_dotenv()
 
 DATABASES = {
     'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
