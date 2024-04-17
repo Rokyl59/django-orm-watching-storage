@@ -16,7 +16,7 @@ env.read_env()
 
 DEBUG = env.bool("DEBUG", default=False)
 
-ROOT_URLCONF = os.getenv('ROOT_URLCONF')
+ROOT_URLCONF = 'project.urls'
 
 ALLOWED_HOSTS = [os.getenv('ALLOWED_HOSTS', '').split(',')]
 
@@ -33,10 +33,10 @@ TEMPLATES = [
 
 USE_L10N = True
 
-LANGUAGE_CODE = os.getenv('LANGUAGE_CODE')
+LANGUAGE_CODE = 'ru-ru'
 
-TIME_ZONE = os.getenv('TIME_ZONE')
+TIME_ZONE = 'Europe/Moscow'
 
 USE_TZ = True
 
-DEFAULT_AUTO_FIELD = os.getenv('DEFAULT_AUTO_FIELD')
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
