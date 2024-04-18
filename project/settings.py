@@ -3,22 +3,25 @@ import dj_database_url
 from environs import Env
 
 
+env = Env()
+env.read_env()
+
 DATABASES = {
-    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
+    'default': dj_database_url.parse(env.str(
+        "DATABASE_URL",
+        default="postgres://user:password@localhost/dbname"))
 }
 
 INSTALLED_APPS = ['datacenter']
 
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = env.str("SECRET_KEY", "default_secret_key")
 
-env = Env()
-env.read_env()
 
 DEBUG = env.bool("DEBUG", default=False)
 
 ROOT_URLCONF = 'project.urls'
 
-ALLOWED_HOSTS = [os.getenv('ALLOWED_HOSTS', '').split(',')]
+ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", [])
 
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
